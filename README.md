@@ -5,6 +5,7 @@
 
 **Fittingroomanywhere**은 이미지 상의 인물의 의상을 자연스럽게 바꿔주는 가상 의류 시착용 서비스입니다. Mask R-CNN을 통해 이미지 상의 의류를 mask로 인식하여 segmentation 작업을 진행하였으며, CycleGAN을 활용하여 의류를 원본 이미지 상의 의류에 맞게 색상과 패턴을 적용했습니다. 
 
+<br>
 
 ## Requirements
 
@@ -12,6 +13,8 @@
 pip install keras
 pip install tensorflow==1.13.1
 ```
+
+<br>
 
 ## Project Details
 
@@ -23,12 +26,16 @@ pip install tensorflow==1.13.1
 - COCO 형태의 segmentation 요소를 VIA의 polygon 형태로 변환
 
 
+<br>
+
 ### Image Segmentation
 <p align="center"><img src="https://ifh.cc/g/mZlkC3.jpg" width="800px"></p>
 
 - Mask R-CNN을 통해 의류 이미지 segmentation 모델 학습
 - pretrained된 모델에 layer 추가, epoch=30으로 진행했을 때 최적의 결과가 나옴
 
+ 
+ <br>
  
 ### Image Generation
 
@@ -37,6 +44,8 @@ pip install tensorflow==1.13.1
 - CycleGAN을 통해 원본 이미지(Input image, 흰 옷)를 가상으로 시착용하고자 하는 의류(파란 옷)로 매핑시켜 최종 결과물(Ouput image)를 얻음
 - dentity loss 를 학습할 때 가중치가 너무 크면 스타일을 반영하지 못하여 가중치를 줄이고 identity loss 를 20 step 당 한번씩 주고 학습
 - Smooth l1 loss, weigth decay=0.09, epoch=40으로 하이퍼 파라미터를 조정함
+
+<br>
 
 ### Overall Framework
 
